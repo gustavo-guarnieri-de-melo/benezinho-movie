@@ -119,7 +119,7 @@ Deverá implementar:
 
 # Diagrama de Entidades e Relacionamentos
 
-<img src="documentacao/DIAGRAMAS/der.png">
+<img src="documentacao/DIAGRAMAS/DER.png">
 
 
 <a id="_Correcao"></a>
