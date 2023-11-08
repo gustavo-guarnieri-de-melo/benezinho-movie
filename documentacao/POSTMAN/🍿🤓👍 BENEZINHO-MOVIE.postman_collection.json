@@ -1,0 +1,725 @@
+{
+	"info": {
+		"_postman_id": "58525a4a-9657-464b-aa3e-16e32001f12b",
+		"name": "🍿🤓👍 BENEZINHO-MOVIE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1524675"
+	},
+	"item": [
+		{
+			"name": "001 - USUÁRIO",
+			"item": [
+				{
+					"name": "PF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benefrancis do Nascimento\",\r\n    \"nascimento\": \"1977-03-08\",\r\n    \"cpf\": \"24378891874\",\r\n    \"sexo\": \"MASCULINO\",\r\n    \"credenciais\": {\r\n        \"username\": \"benefrancis@gmail.com\",\r\n        \"password\": \"123456\"\r\n    },\r\n    \"email\": \"benefrancis@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate that the response is an array\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate 'cpf' is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function (item) {",
+									"        pm.expect(item.cpf).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PF/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/pf/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pf",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PJ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PJ/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/pj/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PJ",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benezinho Holding SA\",\r\n    \"nascimento\": \"2000-03-08\",\r\n    \"cnpj\": \"01023872891864\",\r\n    \"credenciais\": {\r\n        \"username\":  \"holding@benezinho.com\",\r\n        \"password\": \"123456\"\r\n    },\r\n    \"email\": \"holding@benezinho.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PJ BANK",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQzNjgwfQ.GkYQZKpivzDeL2aGUa5sYdjgFwrZ8WVAolgvmdh9CKo",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benezinho Bank SA\",\r\n    \"nascimento\": \"2000-03-08\",\r\n    \"cnpj\": \"0102389728900164\",\r\n    \"credenciais\": {\r\n        \"username\":  \"bank@benezinho.com\",\r\n        \"password\": \"123456\"\r\n    },\r\n    \"email\": \"bank@benezinho.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BRUNO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Bruno sudré do Nascimento\",\r\n    \"nascimento\": \"2000-05-15\",\r\n    \"cpf\": \"24318891874\",\r\n    \"sexo\": \"MASCULINO\",\r\n    \"credenciais\": {\r\n        \"username\": \"bruninhosudre@gmail.com\",\r\n        \"password\": \"123456\"\r\n    },\r\n    \"email\": \"bruninhosudre@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pf"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Você pode cadastrar um novo usuário:\n\n<img src=\"https://content.pstmn.io/f101bef4-96f8-4933-ac5d-7aa1a2f5d807/aW1hZ2UucG5n\" alt=\"Exemplo%20de%20como%20se%20cadastra%20um%20usuário\" width=\"2015\" height=\"531\">"
+		},
+		{
+			"name": "002 - Autenticação",
+			"item": [
+				{
+					"name": "LOGIN PF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"benefrancis@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/authorization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN PJ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjM1NjQ1fQ.xQJ8ApKqFhlyBnlxN7g-fWTnRdPALjLqkJToh4tMHg8",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"holding@benezinho.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/authorization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Realize a autenticação na API Benezinho - Petshop\n\n  \n\n<img src=\"https://content.pstmn.io/f82895d8-eefd-49a7-9a6e-de7c9ef3ca26/aW1hZ2UucG5n\" alt=\"Exemplo%20de%20como%20se%20realiza%20uma%20autenticação\" height=\"657\" width=\"2005\">"
+		},
+		{
+			"name": "003 - GENERO",
+			"item": [
+				{
+					"name": "GENRE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the response body as an array\", function () {\r",
+									"  pm.expect(pm.response.json()).to.be.an('array');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GENRE/ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an object with id and nome properties\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('id', 'name');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/genre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"genre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GENRE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields - id and name\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.id).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(responseData.name).to.exist.and.to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"AVENTURA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/genre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"genre"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "004 - MOVIE",
+			"item": [
+				{
+					"name": "MOVIE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MOVIE",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response is an object\", function () {\r",
+									"    pm.expect(pm.response.json()).to.be.an('object');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"adult\": false,\r\n        \"backdropPath\": \"https://www.imdb.com/title/tt0109830/mediaviewer/rm1408226305/?ref_=tt_ov_i\",\r\n        \"genres\": [\r\n            {\r\n                \"id\": 3,\r\n                \"nome\": \"DRAMA\"\r\n            }\r\n        ],\r\n          \"originalLanguage\": \"inglês\",\r\n        \"originalTitle\": \"Forrest Gump\",\r\n        \"overview\": \"Os governos dos presidentes Kennedy e Johnson, os eventos do Vietnã e Watergate e outras histórias são mostradas através da perspectiva de um homem do Alabama com baixo quociente intelectual.\",\r\n        \"popularity\": 304.0,\r\n        \"posterPath\": \"https://www.imdb.com/title/tt0109830/mediaviewer/rm1408226305/?ref_=tt_ov_i\",\r\n        \"releaseDate\": \"1994-01-01\",\r\n        \"title\": \"Os governos dos presidentes Kennedy e Johnson, os eventos do Vietnã e Watergate e outras histórias são mostradas através da perspectiva de um homem do Alabama com baixo quociente intelectual.\",\r\n        \"video\": false,\r\n        \"voteAverage\": 8.0,\r\n        \"voteCount\": 2200\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MOVIE/ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/movie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"movie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
